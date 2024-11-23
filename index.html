@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WBE Internet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Dark Mode Global */
+        body {
+            background-color: #121212;
+            color: #f1f1f1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background-color: #1a1a1a;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #f1f1f1 !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #00c0ff !important;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        /* Home Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        #home .text-section {
+            width: 50%;
+        }
+
+        #home img {
+            width: 50%;
+            border-radius: 10px;
+        }
+
+        /* Planos Section */
+        .planos {
+            padding: 50px 0;
+        }
+
+        .planos .plan-card {
+            background-color: #2c2c2c;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .planos .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .plan-card h4 {
+            color: #00c0ff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            padding: 30px 0;
+            text-align: center;
+            color: #f1f1f1;
+        }
+
+        footer a {
+            color: #00c0ff;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-box i {
+            font-size: 3rem;
+            color: #00c0ff;
+        }
+
+        .contact-box h5 {
+            color: #f1f1f1;
+        }
+
+        .contact-box p {
+            color: #bbb;
+        }
+
+        .contact-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Home Section */
+#home {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: relative; /* Ajuste para garantir que o texto não fique atrás do cabeçalho */
+    margin-top: 60px; /* Espaço para o cabeçalho não sobrepor o conteúdo */
+}
+
+#home .text-section {
+    width: 50%;
+}
+
+#home img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+/* Planos Section */
+#planos {
+    padding-top: 50px; /* Aumentando o espaço entre a home e planos */
+}
+
+#planos h2 {
+    text-align: center;
+    font-size: 2.5rem; /* Tamanho do título */
+    margin-bottom: 30px; /* Espaço abaixo do título */
+}
+
+/* Media Query para telas menores (Mobile) */
+@media (max-width: 768px) {
+    #home {
+        flex-direction: column; /* Organiza o layout para coluna */
+        justify-content: center;
+        text-align: center;
+        margin-top: 120px; /* Espaço maior para o cabeçalho em dispositivos móveis */
+    }
+
+    #home .text-section {
+        width: 100%;
+        margin-bottom: 20px; /* Espaço entre a imagem e o texto */
+    }
+
+    #home img {
+        width: 100%; /* A imagem ocupa toda a largura da tela */
+        margin-bottom: 20px; /* Espaço entre a imagem e o texto */
+    }
+
+    #planos h2 {
+        font-size: 2rem; /* Ajustando o tamanho do título em dispositivos móveis */
+        margin-bottom: 20px; /* Menos margem em dispositivos móveis */
+    }
+
+    /* Ajustando o tamanho do card para melhor visualização em dispositivos móveis */
+    .plan-card {
+        padding: 15px;
+    }
+
+    /* Aumentando a distância entre as divs de contato em dispositivos móveis */
+    .contact-box {
+        margin-bottom: 30px; /* Espaço maior entre as divisões de contato */
+    }
+
+    .contact-box i {
+        font-size: 2.5rem; /* Ajustando o ícone para telas menores */
+    }
+
+    /* Ajustando o layout da seção de contato para telas pequenas */
+    .contact-box h5 {
+        font-size: 1.2rem; /* Ajustando o tamanho do título do contato */
+    }
+
+    .contact-box p {
+        font-size: 1rem; /* Ajustando o texto do contato */
+    }
+
+    .contact-box {
+        padding: 15px; /* Menos padding para dispositivos móveis */
+    }
+}
+
+/* Navbar - Cabeçalho Fixo */
+.navbar {
+    background-color: #1a1a1a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand, .nav-link {
+    color: #f1f1f1 !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #00c0ff !important;
+}
+
+/* Espaçamento superior para compensar a altura do cabeçalho fixo */
+body {
+    padding-top: 80px; /* Ajuste conforme a altura do seu cabeçalho */
+}
+
+
+
+/* Estilo para o botão "Contrate" */
+.contrate {
+    display: inline-block;
+    background-color: #00c0ff; /* Cor de fundo azul */
+    color: #fff; /* Texto branco */
+    padding: 12px 30px; /* Espaçamento interno (altura e largura do botão) */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Deixa o texto em negrito */
+    border-radius: 30px; /* Bordas arredondadas */
+    text-align: center; /* Alinha o texto no centro */
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: all 0.3s ease; /* Transição suave para efeitos de hover */
+}
+
+/* Efeito de hover (quando passar o mouse sobre o botão) */
+.contrate:hover {
+    background-color: #02d158; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-3px); /* Leve elevação ao passar o mouse */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+    color: #f1f1f1;
+}
+
+/* Efeito quando o link for clicado (ativo) */
+.contrate:active {
+    background-color: #0277bd; /* Cor mais escura quando clicado */
+    transform: translateY(0); /* Remove o efeito de elevação */
+}
+
+/* Estilo para o botão "Central do Assinante" */
+#central {
+    display: inline-block;
+    background-color: #00c0ff; /* Cor de fundo azul */
+    color: #fff; /* Texto branco */
+    padding: 12px 30px; /* Espaçamento interno (altura e largura do botão) */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Deixa o texto em negrito */
+    border-radius: 30px; /* Bordas arredondadas */
+    text-align: center; /* Alinha o texto no centro */
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: all 0.3s ease; /* Transição suave para efeitos de hover */
+    margin-left: 20px; /* Distância do botão em relação aos outros itens */
+    margin-right: 20px; /* Distância do botão em relação aos outros itens */
+}
+
+/* Efeito de hover (quando passar o mouse sobre o botão) */
+#central:hover {
+    background-color: #0288d1; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-3px); /* Leve elevação ao passar o mouse */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+}
+
+/* Efeito quando o link for clicado (ativo) */
+#central:active {
+    background-color: #0277bd; /* Cor mais escura quando clicado */
+    transform: translateY(0); /* Remove o efeito de elevação */
+}
+
+    </style>
+
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <img src="images/logo.png" alt="" width="100px">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                <a href="https://wbeinternet.com.br/central" id="central">Central do Assinante</a>
+              </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+      <div class="text-section">
+          <h1>Conectando você ao futuro da internet</h1>
+          <p>Com planos de alta qualidade em fibra ótica e rádio, oferecemos uma internet rápida e estável para sua casa ou empresa.</p>
+      </div>
+      <img src="images/home.png" alt="Internet" style="background-color: #121212;" width="600px" />
+  </section>
+  
+
+    <!-- Planos Section -->
+    <section id="planos" class="planos">
+        <div class="container text-center">
+            <h2 id="planos-titulo">Planos de Internet Urbana</h2>
+            <div class="row mt-4">
+                <!-- Planos Fibra -->
+                <div class="col-md-6 mb-4">
+                    <div class="plan-card">
+                        <h4>400 MB <br>
+                            FIBRA ÓPTICA
+                        </h4>
+                        <p>Velocidade de Download: Até 400 Mbps para navegação rápida, streaming e downloads sem interrupções.
+                        <BR>
+                        <br>
+                          Conexão Estável: Tecnologia de fibra ótica para uma conexão estável e sem quedas.
+                        <br>
+                        </p>
+                        <p><strong>R$ 89,90/mês</strong></p>
+                        <a href="https://w.app/Wbeinternet" class="contrate">Contrate agora</a>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="plan-card">
+                        <h4>800 MB <br>
+                            FIBRA ÓPTICA</h4>
+                        <p>Velocidade de Download: Até 800 Mbps, ideal para usuários exigentes e ambientes de alto tráfego
+                          <br>
+                          <br>
+                          Ideal para: Grandes famílias, empresas ou escritórios que demandam alta velocidade e baixa latência
+                        </p>
+                        <p><strong>R$ 139,90/mês</strong></p>
+
+                        <a href="https://w.app/Wbeinternet" class="contrate">Contrate agora</a>
+                    </div>
+                </div>
+                <!-- Planos Rádio (Dropdown) -->
+                <div class="col-md-6 mb-4">
+                    <div class="plan-card">
+                        <h4>15 MB</h4>
+                        <p>Velocidade de Download: Até 15 Mbps
+                          <br>
+                          <br>
+                          Atividades Suportadas: Streaming em HD, videoconferências estáveis, jogos online leves e downloads moderados.
+                          <br>
+                          <br>
+                          
+                        </p>
+                        <p><strong>R$ 89,90/mês</strong></p>
+                        <a href="https://w.app/Wbeinternet" class="contrate">Contrate agora</a>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4" style="align-self: center;">
+                  <div class="plan-card">
+                      <h4>25 MB</h4>
+                      <p>Velocidade de Download: Até 25 Mbps, ideal para quem busca uma conexão rápida e eficiente para diversas atividades online.
+                        <br>
+                        <br>
+                        Atividades Suportadas: Streaming em Full HD, videoconferências, navegação fluida e downloads rápidos sem interrupções.
+                        <br>
+                        <br>
+                        
+                      </p>
+                      <p><strong>R$ 109,90/mês</strong></p>
+                      <a href="https://w.app/Wbeinternet" class="contrate">Contrate agora</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center">
+          <h2 id="planos-titulo">Planos de Internet Rural</h2>
+          <div class="row mt-4">
+              <!-- Planos Rádio (Dropdown) -->
+              <div class="col-md-6 mb-4">
+                  <div class="plan-card">
+                      <h4>05 MB</h4>
+                      <p>Ideal para quem precisa de uma conexão básica para navegar e redes sociais.</p>
+                    <p>Alta cobertura e estabilidade em áreas rurais.</p>
+                      <p><strong>R$ 69,90/mês</strong></p>
+
+                      <a href="https://w.app/Wbeinternet" class="contrate">Contrate agora</a>
+                  </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                  <div class="plan-card">
+                      <h4>10 MB</h4>
+                      <p>Perfeito para navegar, assistir vídeos e realizar videoconferências.</p>
+                      <br>
+                    <p>Conexão rápida para áreas mais afastadas.</p>
+                      <p><strong>R$ 89,90/mês</strong></p>
+                      <a href="https://w.app/Wbeinternet" class="contrate">Contrate agora</a>
+                  </div>
+              </div>
+              <div class="col-md-6 mb-4" style="align-self: center;">
+                <div class="plan-card">
+                    <h4>15 MB</h4>
+                    <p>Excelente para famílias que precisam de mais velocidade e múltiplos dispositivos conectados.</p>
+                    <p>Internet de qualidade com bom desempenho em regiões rurais.</p>
+                    <p><strong>R$ 115,00/mês</strong></p>
+                    <a href="https://w.app/Wbeinternet" class="contrate">Contrate agora</a>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="plan-card">
+                    <h4>25 MB</h4>
+                    <p>Ideal para quem precisa de uma conexão rápida para trabalhar, estudar e transmitir ao vivo.</p>
+                  <p>Desempenho excepcional, mesmo em áreas mais afastadas.</p>
+                    <p><strong>R$ 129,90/mês</strong></p>
+                    <a href="https://w.app/Wbeinternet" class="contrate">Contrate agora</a>
+                </div>
+            </div>
+          </div>
+      </div>
+        
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="bg-dark text-light py-5">
+        <div class="container text-center">
+            <h2>Sobre Nós</h2>
+            <p>Somos a WBE Internet, um provedor dedicado a oferecer soluções de conectividade de alta qualidade. Com anos de experiência, atendemos a clientes residenciais e corporativos, proporcionando a melhor experiência em internet de fibra ótica e rádio.</p>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="bg-dark text-light py-5">
+        <div class="container text-center">
+            <h2>Contato</h2>
+            <p>Entre em contato conosco para mais informações sobre nossos planos ou suporte técnico.</p>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="https://w.app/Wbeinternet">
+                          <h5>Telefone</h5>
+                          <p>(43)99945-2054</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="contact-box">
+                      <i class="fas fa-envelope"></i>
+                      <h5>Email</h5>
+                      <p>wanmeneguetti@hotmail.com</p>
+                  </div>
+              </div>
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.app.goo.gl/9coxuRcpESsX14bd9">
+                         <h5>Endereço</h5>
+                          <p>R. Izaltino José Silvestre, 469, sala 02, Tamarana-PR, 86125-000</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 WBE Internet | <a href="#">Política de Privacidade</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
